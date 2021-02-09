@@ -1,6 +1,5 @@
 Step 1----------------------
-npm i ngx-emoji-picker@0.0.2
-
+npm i ngx-emoji-picker
 
 Step 2-------------Import in module.ts------------
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
