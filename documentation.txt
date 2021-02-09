@@ -1,0 +1,33 @@
+Step 1----------------------
+npm i ngx-emoji-picker@0.0.2
+
+
+Step 2-------------Import in module.ts------------
+import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
+
+imports: [
+      NgxEmojiPickerModule.forRoot()      //for root if lazy loading is not there.
+],
+      
+imports: [
+      NgxEmojiPickerModule.forRoot()      //Import in child module in case of lazy loading.
+],
+
+
+
+Step 3-------------Define Function & variables in component.ts------------
+
+toggled: boolean = false;
+message: string = '';
+  
+handleSelection(event) {
+    console.log(event.char);
+    this.message += event.char;
+  }
+
+
+Step 4-------------For target input and emoji picker button in component.html------------
+
+<input type="text" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" (keypress)="IsTyping()" placeholder="Type your comment here..">
+
+<button class="btn-emoji" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'" (emojiPickerSelect)="handleSelection($event)"><i class="fa fa-smile-o"></i></button>
